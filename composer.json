@@ -1,0 +1,33 @@
+{
+  "authors": [
+    {
+      "name": "Adam Patterson",
+      "email": "hello@adampatterson.ca"
+    }
+  ],
+  "require": {
+    "stechstudio/phpinfo": "^1.1"
+  },
+  "require-dev": {
+    "humbug/box": "^4.0"
+  },
+  "autoload": {
+    "files": [
+      "src/global.php"
+    ]
+  },
+  "config": {
+    "allow-plugins": {
+      "bamarni/composer-bin-plugin": true,
+      "composer/package-versions-deprecated": true,
+      "pestphp/pest-plugin": true
+    }
+  },
+  "scripts": {
+    "build": "vendor/bin/box compile",
+    "test:phar": "php tests/test-phar.php",
+    "test": [
+      "@test:phar"
+    ]
+  }
+}

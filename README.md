@@ -12,16 +12,20 @@ This project uses **PHP-Scoper** and **Box** to bundle the `prettyphpinfo` libra
 2. **Global Loading**: By using the PHP `auto_prepend_file` configuration, the PHAR is loaded into every PHP script you run. The helper functions `prettyphpinfo()` and
    `items()` are exposed globally for immediate use.
 
+> [!NOTE]
+> If for any reason this conflicts with your own projects code, feel free to use `auto_append_file`.
+> All functions are wrapped to prevent any errors from breaking your application.
+
 ## Installation
 
 ### 1. Download the PHAR
 
 Download the latest `pretty.phar` from the [Releases](https://github.com/adampatterson/pretty-global/releases) page of this repository.
 
-Move it to a permanent location on your system, for example:
+Copy it to a permanent location on your system, for example:
 
 ```bash
-mv pretty.phar /usr/local/bin/pretty.phar
+cp pretty.phar /usr/local/bin/pretty.phar
 ```
 
 ### 2. Configure `php.ini`
@@ -65,6 +69,11 @@ If you want to build the PHAR yourself:
    composer build
    ```
    *This runs `vendor/bin/box compile` behind the scenes.*
+
+4. Copy the PHAR to a permanent location on your system.
+   ```bash
+   cp pretty.phar /usr/local/bin/pretty.phar
+   ```
 
 ## How it was built
 
