@@ -26,3 +26,5 @@ jobs:
           branch: main
           commit_message: Update CHANGELOG
           file_pattern: CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
