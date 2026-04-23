@@ -81,6 +81,24 @@ If you want to build the PHAR yourself:
 - **[PHP-Scoper](https://github.com/humbug/php-scoper)**: Used to prefix namespaces to prevent global dependency conflicts.
 - **GitHub Actions**: Automatically builds and attaches the `pretty.phar` to every new release tag.
 
+## Releasing an update
+
+This project uses GitHub Actions to automate the release process. When you are ready to release a new version:
+
+1.  **Tag the release**: Create a new version tag (e.g., `v1.0.1`).
+    ```bash
+    git tag v1.0.1
+    ```
+2.  **Push the tag**: Push the tag to GitHub.
+    ```bash
+    git push origin v1.0.1
+    ```
+
+### What happens next?
+
+- **Build & Release**: GitHub Actions will automatically compile the `pretty.phar`, create a new GitHub Release, and attach the PHAR to it.
+- **Changelog**: Once the release is published, another workflow will automatically update the `CHANGELOG.md` with the release notes.
+
 ## GitHub Token Setup
 
 By default, GitHub Actions provides an automatic `GITHUB_TOKEN`. For most cases, you **do not** need to generate a personal token.
