@@ -7,8 +7,8 @@ A standalone, "scoped" PHAR distribution of [stechstudio/phpinfo](https://github
 
 This project uses **PHP-Scoper** and **Box** to bundle the `prettyphpinfo` library into a single `.phar` file.
 
-1. **Scoping**: Every class inside the PHAR is prefixed with
-   `GlobalPrettyPhpinfo`. This ensures that if your local project also uses a different version of the same library (or its dependencies like Symfony components), they will not conflict.
+1. **Scoping**: Every class inside the PHAR is prefixed with `GlobalPrettyPhpinfo`. This ensures that if your local project also uses a different version of the same
+   library (or its dependencies like Symfony components), they will not conflict.
 2. **Global Loading**: By using the PHP `auto_prepend_file` configuration, the PHAR is loaded into every PHP script you run. The helper functions `prettyphpinfo()` and
    `items()` are exposed globally for immediate use.
 
@@ -89,13 +89,13 @@ If you want to build the PHAR yourself:
 
 This project uses GitHub Actions to automate the release process. When you are ready to release a new version:
 
-1. **Tag the release**: Create a new version tag (e.g., `v1.0.1`).
+1. **Tag the release**: Create a new version tag (e.g., `1.0.1`).
    ```bash
-   git tag v1.0.1
+   git tag 1.0.1
    ```
 2. **Push the tag**: Push the tag to GitHub.
    ```bash
-   git push origin v1.0.1
+   git push origin 1.0.1
    ```
 
 ### What happens next?
