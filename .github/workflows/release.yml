@@ -3,7 +3,7 @@ name: Release PHAR
 on:
   push:
     tags:
-      - 'v*'
+      - '*'
 
 jobs:
   build:
