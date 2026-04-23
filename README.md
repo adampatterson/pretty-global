@@ -51,9 +51,13 @@ Once installed, you can call `prettyphpinfo()` from any PHP file on your system,
 
 // This will now render the Pretty, searchable PHP Info page
 prettyphpinfo();
-```
 
-Alternativly, you can also use `prettyglobal()`, or a short `ppi()`.
+// Alternatively
+prettyglobal();
+
+// Or a short version
+ppi();
+```
 
 ## Development & Building
 
@@ -85,14 +89,14 @@ If you want to build the PHAR yourself:
 
 This project uses GitHub Actions to automate the release process. When you are ready to release a new version:
 
-1.  **Tag the release**: Create a new version tag (e.g., `v1.0.1`).
-    ```bash
-    git tag v1.0.1
-    ```
-2.  **Push the tag**: Push the tag to GitHub.
-    ```bash
-    git push origin v1.0.1
-    ```
+1. **Tag the release**: Create a new version tag (e.g., `v1.0.1`).
+   ```bash
+   git tag v1.0.1
+   ```
+2. **Push the tag**: Push the tag to GitHub.
+   ```bash
+   git push origin v1.0.1
+   ```
 
 ### What happens next?
 
@@ -115,6 +119,7 @@ In most cases, you only need to grant the default token write permissions:
 ### 2. When to Generate a PAT (Optional)
 
 You only need to generate a Personal Access Token (PAT) if:
+
 - You need to trigger other workflows from the release action.
 - You are hitting rate limits with the default token.
 - You prefer using a dedicated service account.
