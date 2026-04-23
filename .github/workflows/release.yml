@@ -1,0 +1,42 @@
+name: Release PHAR
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: dom, mbstring, zip
+          tools: composer:v2
+
+      - name: Install dependencies
+        run: composer install --no-dev
+
+      - name: Build PHAR
+        run: vendor/bin/box compile
+
+      - name: Run PHAR Smoke Test
+        run: php tests/test-phar.php
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: pretty.phar
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
