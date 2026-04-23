@@ -80,3 +80,32 @@ If you want to build the PHAR yourself:
 - **[Box](https://github.com/box-project/box)**: Used to bundle the code and dependencies into the PHAR.
 - **[PHP-Scoper](https://github.com/humbug/php-scoper)**: Used to prefix namespaces to prevent global dependency conflicts.
 - **GitHub Actions**: Automatically builds and attaches the `pretty.phar` to every new release tag.
+
+## GitHub Token Setup
+
+By default, GitHub Actions provides an automatic `GITHUB_TOKEN`. For most cases, you **do not** need to generate a personal token.
+
+### 1. Enable Workflow Permissions (Recommended)
+
+In most cases, you only need to grant the default token write permissions:
+
+1. Go to your repository on GitHub.
+2. Click on **Settings** > **Actions** > **General**.
+3. Under **Workflow permissions**, select **Read and write permissions**.
+4. Click **Save**.
+
+### 2. When to Generate a PAT (Optional)
+
+You only need to generate a Personal Access Token (PAT) if:
+- You need to trigger other workflows from the release action.
+- You are hitting rate limits with the default token.
+- You prefer using a dedicated service account.
+
+If you decide you need one:
+
+1. Go to your GitHub [Personal Access Tokens](https://github.com/settings/tokens) settings.
+2. Click **Generate new token (classic)**.
+3. Give it a description (e.g., `Pretty Global Release`).
+4. Select the `repo` scope (all).
+5. Click **Generate token** and copy the value.
+6. Add it as a repository secret named `GH_TOKEN` under **Settings** > **Secrets and variables** > **Actions**.
